@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Onboarding JSON</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/app.css" th:href="@{/css/app.css}" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" th:href="@{/images/favicon.png}"/> 
+    
+    <!-- these meta tags have been added for Chubb -->
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="no-store"/>
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"/>
+    <META HTTP-EQUIV="X-Content-Type-Options" CONTENT="nosniff"/>
+    <META HTTP-EQUIV="X-XSS-Protection" CONTENT="1"/>
+    <!-- this should be set on the server -->
+    <!--<META HTTP-EQUIV="Strict-Transport-Security" CONTENT="max-age=31536000;includeSubDomains; preload"/>-->
+    <META HTTP-EQUIV="X-Frame-Options" CONTENT="deny"/>
+    
+</head>
+
+
+
+
+
+<body>
+<!-- This is overlay -->
+<div id="myNav" class="overlay">  
+  <div class="overlay-content">
+  	PAYPAL
+  	<BR/>
+  	
+  	<img src="/images/tenor.gif"/>
+   </div>
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
+
+
+
+</body>
+</html>
