@@ -50,14 +50,13 @@ public class ReportGenerator {
                     htmlBuilder.append(ReportGeneratorHTMLElements.HEADING_2_CLOSE);
                         htmlBuilder.append("<table> <tr> <td align=right>");
                         htmlBuilder.append(ReportGeneratorHTMLElements.HEADING_3_OPEN+"External ID : "
-                                +"</td> <td>"
-                                +ReportGeneratorHTMLElements.HEADING_3_CLOSE+topLevelElementsBDO.getExternal_id());
+                                +ReportGeneratorHTMLElements.HEADING_3_CLOSE+
+                                "</td> <td>"+topLevelElementsBDO.getExternal_id());
                         htmlBuilder.append("</td></tr>");
                         htmlBuilder.append("<tr> <td align=right>");
-                        htmlBuilder.append(ReportGeneratorHTMLElements.HEADING_3_OPEN+"Organization : "
-                                        +"</td> <td>"+
+                        htmlBuilder.append(ReportGeneratorHTMLElements.HEADING_3_OPEN+"Organization : "+
                                 ReportGeneratorHTMLElements.HEADING_3_CLOSE+
-                                                        topLevelElementsBDO.getOrganization()+"<br>");
+                                        "</td> <td>"+topLevelElementsBDO.getOrganization()+"<br>");
                         htmlBuilder.append("</td></tr>");
                         htmlBuilder.append("<tr> <td align=right>");
                         htmlBuilder.append(ReportGeneratorHTMLElements.HEADING_3_OPEN+"Primary Currency Code : "+

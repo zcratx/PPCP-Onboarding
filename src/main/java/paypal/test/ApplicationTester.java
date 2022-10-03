@@ -21,7 +21,7 @@ public class ApplicationTester {
             //System.out.println("The classloader is "+getClass().getClassLoader().getResource("JSON/post.json"));
             String filePath = getClass().getClassLoader().getResource("JSON/post.json").getPath();
             System.out.println("The POST.JSON file path is "+ filePath);
-            String reportFilePath = getClass().getClassLoader().getResource("templates.html/").getPath();
+            String reportFilePath = getClass().getClassLoader().getResource("templates.checkouts/").getPath();
             System.out.println("The Report.JSON file path is "+ filePath);
 
             // load the JSON
