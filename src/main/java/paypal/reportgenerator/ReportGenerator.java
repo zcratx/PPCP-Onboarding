@@ -145,7 +145,7 @@ public class ReportGenerator {
 
         // here we paint business entity registered business address
         htmlBuilder.append("<table> <tr colspan=2> <td>");
-        htmlBuilder.append(ReportGeneratorHTMLElements.HEADING_2_OPEN+"Entity Reg Business Details"+
+        htmlBuilder.append(ReportGeneratorHTMLElements.HEADING_2_OPEN+"Entity Reg Address"+
                 ReportGeneratorHTMLElements.HEADING_2_CLOSE+"</td> </tr>");
 
         Map<String, Map<String, String>> businessEntityAddOuter = containerLevelElementsBDO.getBusiness_entity_registered_business_address();
@@ -378,6 +378,38 @@ public class ReportGenerator {
             htmlBuilder.append("</td> </tr>");
         }
         htmlBuilder.append("</table>");
+
+        // finally painting the links
+
+        htmlBuilder.append("<table> <tr colspan=2> <td>");
+        htmlBuilder.append(ReportGeneratorHTMLElements.HEADING_2_OPEN+"Links"+
+                ReportGeneratorHTMLElements.HEADING_2_CLOSE+"</td> </tr>");
+
+        Map<String, String> links = arrayLevelElementsBDO.getLinks();
+        Iterator<String> linksIter = links.keySet().iterator();
+
+        while(linksIter.hasNext()) {
+            String beKey = linksIter.next();
+
+            String beValue = links.get(beKey);
+                            /*
+                            if((!beKey.equals("href"))|| (!beKey.equals("rel")) || (!beKey.equals("method"))) {
+                                beKey = beKey.substring(0, beKey.length()-1);
+                            }
+                            */
+
+            htmlBuilder.append("<tr> <td>");
+            htmlBuilder.append(ReportGeneratorHTMLElements.HEADING_3_OPEN + beKey+
+                    ReportGeneratorHTMLElements.HEADING_3_CLOSE +
+                    "</td><td>"+
+                    beValue);
+            htmlBuilder.append("</td> </tr>");
+
+        }
+
+
+        htmlBuilder.append("</table>");
+
 
         htmlBuilder.append(ReportGeneratorHTMLElements.BODY_CLOSE);
 
