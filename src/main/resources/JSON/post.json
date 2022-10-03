@@ -1,0 +1,303 @@
+{
+  "account_id": "7WF23TUNCSG3C",
+  "legal_country_code": "US",
+  "individual_owners": [
+    {
+      "id": "7WF23TUNCSG3C",
+      "names": [
+        {
+          "given_name": "Mary",
+          "surname": "Collins",
+          "id": "RUWVK7JBB9QY4",
+          "type": "LEGAL"
+        }
+      ],
+      "primary_residence": {
+        "address_line_1": "1234 Lane1 Drive",
+        "admin_area_2": "100",
+        "postal_code": "95121",
+        "country_code": "US"
+      },
+      "birth_details": {
+        "date_of_birth": "1995-05-30"
+      }
+    }
+  ],
+  "business_entity": {
+    "type": "CORPORATION",
+    "merchant_category_code": "5931",
+    "incorporation_details": {},
+    "names": [
+      {
+        "business_name": "Demo Inc.",
+        "id": "VBWEDFDH9FG4J",
+        "type": "LEGAL"
+      }
+    ],
+    "registered_business_address": {
+      "address_line_1": "1234 Lane1 Drive",
+      "admin_area_2": "100",
+      "postal_code": "95014",
+      "country_code": "US"
+    },
+    "phone_numbers": [
+      {
+        "country_code": "1",
+        "national_number": "1",
+        "id": "FBENJBCN8BW28",
+        "type": "BUSINESS"
+      }
+    ]
+  },
+  "agreements": [
+    {
+      "type": "TERMS_ACCEPTED",
+      "accepted_time": "2019-06-02T01:23:45Z"
+    }
+  ],
+  "external_id": "EXT-1633123448",
+  "organization": "us/net",
+  "primary_currency_code": "USD",
+  "soft_descriptor": "DEMO INC",
+  "capabilities": [
+    {
+      "name": "APPLE_PAY",
+      "limits": [
+        {
+          "type": "COUNT",
+          "unit": "NONE",
+          "value": "190"
+        },
+        {
+          "type": "AMOUNT",
+          "unit": "USD",
+          "value": "500.00",
+          "remaining_value": "500.00"
+        }
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "name": "CUSTOM_CARD_PROCESSING",
+      "limits": [
+        {
+          "type": "COUNT",
+          "unit": "NONE",
+          "value": "190"
+        },
+        {
+          "type": "AMOUNT",
+          "unit": "USD",
+          "value": "500.00",
+          "remaining_value": "500.00"
+        }
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "name": "RECEIVE_MONEY",
+      "limits": [
+        {
+          "type": "COUNT",
+          "unit": "NONE",
+          "value": "190"
+        }
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "name": "WITHDRAW_MONEY",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "CUSTOM_BANK_PROCESSING",
+      "limits": [
+        {
+          "type": "COUNT",
+          "unit": "NONE",
+          "value": "190"
+        },
+        {
+          "type": "AMOUNT",
+          "unit": "USD",
+          "value": "500.00",
+          "remaining_value": "500.00"
+        }
+      ],
+      "status": "ACTIVE"
+    }
+  ],
+  "process_view": {
+    "processes": [
+      {
+        "name": "MANAGED_PATH_KYC",
+        "status": "NEED_MORE_DATA",
+        "capabilities": [
+          {
+            "name": "APPLE_PAY",
+            "limits": [
+              {
+                "type": "AMOUNT",
+                "unit": "USD",
+                "value": "500.00",
+                "remaining_value": "500.00"
+              }
+            ]
+          },
+          {
+            "name": "CUSTOM_BANK_PROCESSING",
+            "limits": [
+              {
+                "type": "AMOUNT",
+                "unit": "USD",
+                "value": "500.00",
+                "remaining_value": "500.00"
+              }
+            ]
+          },
+          {
+            "name": "CUSTOM_CARD_PROCESSING",
+            "limits": [
+              {
+                "type": "AMOUNT",
+                "unit": "USD",
+                "value": "500.00",
+                "remaining_value": "500.00"
+              }
+            ]
+          }
+        ],
+        "required": {
+          "op": "ALL_OF",
+          "attributes": [
+            "$.business_entity.identification_documents[?(@['type']=='EMPLOYER_IDENTIFICATION_NUMBER')]"
+          ]
+        }
+      },
+      {
+        "name": "MANAGED_PATH_1099_K",
+        "status": "NEED_MORE_DATA",
+        "capabilities": [
+          {
+            "name": "APPLE_PAY",
+            "limits": [
+              {
+                "type": "COUNT",
+                "unit": "NONE",
+                "value": "190"
+              }
+            ]
+          },
+          {
+            "name": "CUSTOM_CARD_PROCESSING",
+            "limits": [
+              {
+                "type": "COUNT",
+                "unit": "NONE",
+                "value": "190"
+              }
+            ]
+          },
+          {
+            "name": "RECEIVE_MONEY",
+            "limits": [
+              {
+                "type": "COUNT",
+                "unit": "NONE",
+                "value": "190"
+              }
+            ]
+          },
+          {
+            "name": "CUSTOM_BANK_PROCESSING",
+            "limits": [
+              {
+                "type": "COUNT",
+                "unit": "NONE",
+                "value": "190"
+              }
+            ]
+          }
+        ],
+        "required": {
+          "op": "ALL_OF",
+          "attributes": [
+            {
+              "op": "ONE_OF",
+              "attributes": [
+                {
+                  "op": "ALL_OF",
+                  "attributes": [
+                    "$.business_entity.identification_documents[?(@['type']=='EMPLOYER_IDENTIFICATION_NUMBER')]"
+                  ]
+                },
+                {
+                  "op": "ALL_OF",
+                  "attributes": [
+                    {
+                      "op": "ONE_OF",
+                      "attributes": [
+                        "$.individual_owners[?(@['id']=='7WF23TUNCSG3C')].identification_documents[?(@['type']=='SOCIAL_SECURITY_NUMBER')]",
+                        "$.individual_owners[?(@['id']=='7WF23TUNCSG3C')].identification_documents[?(@['type']=='INDIVIDUAL_TAX_IDENTIFICATION_NUMBER')]"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "MANAGED_PATH_BO_VERIFICATION",
+        "status": "NEED_MORE_DATA",
+        "capabilities": [
+          {
+            "name": "APPLE_PAY",
+            "limits": [
+              {
+                "type": "AMOUNT",
+                "unit": "USD",
+                "value": "500.00",
+                "remaining_value": "500.00"
+              }
+            ]
+          },
+          {
+            "name": "CUSTOM_CARD_PROCESSING",
+            "limits": [
+              {
+                "type": "AMOUNT",
+                "unit": "USD",
+                "value": "500.00",
+                "remaining_value": "500.00"
+              }
+            ]
+          }
+        ],
+        "required": {
+          "op": "ALL_OF",
+          "attributes": [
+            "$.business_entity.business_relationship_declarations[?(@['name']=='TWENTY_FIVE_PERCENT_BENEFICIAL_OWNER')]",
+            {
+              "op": "ALL_OF",
+              "attributes": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "links": [
+    {
+      "href": "https://msmaster.qa.paypal.com:26876/v3/customer/managed-accounts/7WF23TUNCSG3C",
+      "rel": "self",
+      "method": "GET"
+    },
+    {
+      "href": "https://msmaster.qa.paypal.com:26876/v3/customer/managed-accounts/7WF23TUNCSG3C",
+      "rel": "edit",
+      "method": "PATCH"
+    }
+  ]
+}

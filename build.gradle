@@ -1,0 +1,66 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'OnboardingJSONInterpreter'
+    version =  '0.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web:2.7.3')
+
+    //compile("com.braintreepayments.gateway:braintree-java:3.2.0")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+    // this is for doing HTTP Post for calling GraphQL	
+	compile('com.squareup.okhttp3:okhttp:4.10.0')
+	
+	// this is for embedded tomcat
+	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.27'
+	
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
+
+    // these are the imports for Jackson
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.13.4'
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.4'
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.13.4'
+
+    //compile group: 'com.fasterxml.jackson.core', name: 'jackson-datatype-joda', version: '2.13.4'
+	
+	
+    
+    testCompile("junit:junit")
+    testCompile('io.rest-assured:spring-mock-mvc:5.2.0')
+    testCompile('org.springframework.boot:spring-boot-starter-test:2.7.3')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.8.1'
+}
+
+
+task stage (
+  dependsOn: ['compileJava', 'processResources', 'classes', 'findMainClass', 'jar', 'bootRepackage', 'assemble']
+)
