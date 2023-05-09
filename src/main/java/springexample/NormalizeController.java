@@ -61,7 +61,10 @@ public class NormalizeController {
     public String root(Model model) {
     	return "redirect:normalize";
     }
-    
 
+    @RequestMapping(value = "/venmopayments", method = RequestMethod.GET)
+    public String venmopayments(Model model) {
+        return "checkouts/venmopayexample";
+    }
     
 }
