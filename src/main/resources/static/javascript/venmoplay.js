@@ -1,7 +1,8 @@
 
 <script>
 
-    alert("the script is in
+    alert("the script is loading");
+
     var myDeviceData;
 
     var venmoButton = document.getElementById('venmo-button');
