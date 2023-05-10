@@ -123,9 +123,11 @@
                   * for the customer to return to the broswer or they can manually app switch
                   */
 
-                  requireManualReturn: !braintree.venmo.isBrowserSupported({
+                  /*requireManualReturn: !braintree.venmo.isBrowserSupported({
                               allowNewBrowserTab: false
                    }),
+                   */
+                   requireManualReturn : true,
 
 
                   /**
